@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 function SearchList({ book, toggleModal }) {
 
@@ -16,6 +17,11 @@ function SearchList({ book, toggleModal }) {
             </div>
         </>
     )
+}
+
+SearchList.propTypes = {
+    book: PropTypes.object.isRequired,
+    toggleModal: PropTypes.func
 }
 
 export default SearchList

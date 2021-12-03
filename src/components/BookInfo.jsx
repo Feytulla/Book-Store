@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 function BookInfo({ book }) {
     return (
@@ -45,6 +46,10 @@ function BookInfo({ book }) {
             </tr>
         </>
     )
+}
+
+BookInfo.propTypes = {
+    book: PropTypes.object.isRequired
 }
 
 export default BookInfo

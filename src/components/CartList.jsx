@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { removeBook, addCount } from "../store/cartBooks";
+import PropTypes from 'prop-types';
 
 function CartList({ book, index }) {
     const [bookValue, setBookValue] = useState(book.count ? book.count : 0)
@@ -57,6 +58,11 @@ function CartList({ book, index }) {
             </div>
         </>
     )
+}
+
+CartList.propTypes = {
+    book: PropTypes.object.isRequired,
+    index: PropTypes.number.isRequired
 }
 
 export default CartList

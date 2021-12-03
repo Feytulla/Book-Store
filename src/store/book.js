@@ -24,7 +24,7 @@ export const fetbook = createAsyncThunk(
 export const book = createSlice({
     name: 'book',
     initialState: {
-        book: [],
+        book: {},
         status: null,
         error: null,
     },
@@ -32,11 +32,11 @@ export const book = createSlice({
         [fetbook.pending]: (state) => {
             state.status = 'loading'
             state.error = null
-            state.book = []
+            state.book = {}
         },
         [fetbook.fulfilled]: (state, action) => {
             state.status = 'resolved';
-            state.book.push(action.payload)
+            state.book = action.payload
         },
         [fetbook.rejected]: (state, action) => {
             state.error = action.payload

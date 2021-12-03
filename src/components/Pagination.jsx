@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useParams } from "react-router";
+import PropTypes from 'prop-types';
 
 function Pagination({ totalBoks, paginate, params }) {
     const param = useParams();
@@ -38,6 +39,13 @@ function Pagination({ totalBoks, paginate, params }) {
             </nav>
         </>
     )
+}
+
+Pagination.propTypes = {
+    totalBoks: PropTypes.number,
+    paginate: PropTypes.func,
+    params: PropTypes.object
+
 }
 
 export default Pagination

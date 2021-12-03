@@ -7,7 +7,7 @@ import BookInfo from "../components/BookInfo";
 function BookPage() {
     const params = useParams();
     const dispatch = useDispatch()
-    const book = useSelector(state => state.book.book[0])
+    const book = useSelector(state => state.book.book)
     const [count, setCount] = useState('1' ? '1' : 0)
     const [addCart, setAddCart] = useState([])
 

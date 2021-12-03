@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 function SearchResultList({ books }) {
 
@@ -19,6 +20,10 @@ function SearchResultList({ books }) {
             </ul>
         </>
     )
+}
+
+SearchResultList.propTypes = {
+    books: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 export default SearchResultList
