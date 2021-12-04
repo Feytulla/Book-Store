@@ -4,7 +4,7 @@ import { removeBook, addCount } from "../store/cartBooks";
 import PropTypes from 'prop-types';
 
 function CartList({ book, index }) {
-    const [bookValue, setBookValue] = useState(book.count ? book.count : 0)
+    const [bookValue, setBookValue] = useState(book.count ? book.count : 1)
     const [bookIndex] = useState(index)
     const dispatch = useDispatch()
     const local = JSON.parse(localStorage.getItem('books'));
@@ -12,8 +12,9 @@ function CartList({ book, index }) {
 
     useEffect(() => {
         setBookValue(local[index].count)
+        
 
-    },[])
+    },[local])
 
     useEffect(() => {
         dispatch(addCount({bookValue,isbn}))
@@ -28,13 +29,14 @@ function CartList({ book, index }) {
             localStorage.setItem('books', JSON.stringify(local))
             setBookValue(local[index].count)
         }
-        
     }, [bookValue])
+
     function deleteBook() {
         dispatch(removeBook(index))
         local.splice(index, 1)
         localStorage.setItem('books', JSON.stringify(local))
     }
+    
     return (
         <>
             <div className="col-sm pt-3 pb-3 d-flex align-items-center justify-content-between">
