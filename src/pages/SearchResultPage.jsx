@@ -7,7 +7,7 @@ import Pagination from "../components/Pagination";
 function SearchResultPage() {
     const params = useParams()
     const [books, setBooks] = useState([])
-    const [currentPage, setCurrentPage] = useState(1)
+    const [currentPage, setCurrentPage] = useState(params.pageNumber || 1)
     const [pageOty, setPageQty] = useState(0)
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
